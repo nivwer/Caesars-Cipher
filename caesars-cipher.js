@@ -1,20 +1,30 @@
-
-
-
-
-function rot13(str) {
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function rot(num, str) {
+  const alphabetmin = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabetmay = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let answer = "";
 
   for (let i = 0; i < str.length; i++){
 
-    let index = alphabet.indexOf(str[i])
-    
-    if (index >= 13){
-      answer += alphabet[index - 13]
-    } else if (index < 13 && index > -1){ 
-    answer += alphabet[index + 13]
-    } else {
+    let indexmin = alphabetmin.indexOf(str[i])
+    let indexmay = alphabetmay.indexOf(str[i])
+
+    if (alphabetmin.includes(str[i]) == true){
+      if (indexmin >= 0 && indexmin <= (25 - num)){
+        answer += alphabetmin[indexmin + num]
+      }
+      else {
+        answer += alphabetmin[indexmin + num - 26]
+      }
+    }
+    else if (alphabetmay.includes(str[i]) == true){
+      if (indexmay >= 0 && indexmay <= (25 - num)){
+        answer += alphabetmay[indexmay + num]
+      }
+      else {
+        answer += alphabetmay[indexmay + num - 26]
+      }
+    }
+    else {
       answer += str[i]
     }
   }
@@ -22,13 +32,18 @@ function rot13(str) {
 }
 
 
+
 function cipher(){
   let text = document.getElementById("text").value;
-  hola = rot13(text);
-  console.log(hola);
+  document.getElementById("result").value = " ";
+  for (let i = 0; i < 26; i++){
+    let rots = i;
+
+    let result = rot(rots, text); 
+
+    document.getElementById("result").value += (result);
+  }
 }
-
-
 
 
 
