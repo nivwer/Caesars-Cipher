@@ -7,9 +7,12 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-
-        <input type="text" id="text" placeholder="Enter a word or phrase" required>
-        <button id="cipher" onclick="cipher()">Cipher</button>        
+        <div class="container">
+            <p>Caesars Cipher</p>
+            <input type="text" id="text" placeholder="Enter a word or phrase" required>
+            <button id="cipher" onclick="cipher()">Cipher</button>
+            <input type="text" id="result" readonly="readonly">
+        </div>
         <script src="caesars-cipher.js"></script>
     </body>
 </html>
