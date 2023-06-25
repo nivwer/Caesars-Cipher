@@ -35,11 +35,11 @@ function rot(num, str) {
 
 function cipher(){
   let text = document.getElementById("text").value;
-  document.getElementById("result").value = " ";
+  document.getElementById("result").value = "";
   for (let i = 0; i < 26; i++){
     let rots = i;
 
-    let result = "rot " + rots + ( rot(rots, text)); 
+    let result = `rot ${rots}: ${rot(rots, text)} \n\n`;
 
     document.getElementById("result").value += (result);
   }
